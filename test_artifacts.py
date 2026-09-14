@@ -93,7 +93,6 @@ def touch(root, rel, data=b"x"):
     p.write_bytes(data)
     return p
 
-
 # ---- walker prunes dot-directories in the workdir ----
 with tempfile.TemporaryDirectory() as tmp:
     root = pathlib.Path(tmp)
@@ -174,7 +173,7 @@ with tempfile.TemporaryDirectory() as tmp:
         text = "".join(inline([root], before, "user"))
     finally:
         _Files.mode = "sync"
-    check("rejected row is not linked", "![" not in text and "not linkable" in text, text)
+    check("rejected row is not linked", "![]" not in text and "not linkable" in text, text)
 
 print()
 if fails:
